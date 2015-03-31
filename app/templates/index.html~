@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+<title>PaintApp-JS</title>
+{% block content %}
+<head>
+<script src="/static/saveimage.db.js"></script>
+<script src="/static/script.js"></script>
+<script src="/static/load.js"></script>
+<script src="/static/jquery.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<div class="col-sm-3 col-md-1" style="background-color:lavender;">
+</div>
+<div class="col-sm-3 col-md-8" style="background-color:lavender;">
+     <div class="col-sm-1 col-md-11" style="background-color:lavenderblush;">
+	<h1>PAINT APPLICATION USING JS</h1>
+     </div><br><br>
+	<body onload="mycan(event)" onkeydown="undoredo(event)"><br><br><br>
+	<input type="submit" name="rect" class="btn-small btn-info" value="rectangle" onclick="settool('rectangle')">
+	<input type="submit" name="filledcircle"  value="filledcircle" class="btn-small btn-info" onclick="settool('filledcircle')">
+	<input type="submit" name="circle" class="btn-small btn-info" value="circle" onclick="settool('circle')">
+	<input type="submit" name="fillrect" class="btn-small btn-info" value="fillrectangle" onclick="settool('fillrectangle')">
+	<input type="submit" name="line" class="btn-small btn-info" value="line" onclick="settool('line')">
+	<input type="submit" class="btn-small btn-info" value="clearscreen" onclick="clearscreen()"><br><br>
+	<input type="submit" value="save"  class="btn-small btn-danger" onclick="ollist(0)">
+	<input type="text" name="savename" id="savename" onkeyup="suggest(this)" required>
+	<input type="submit" value="saved_items"  class="btn-small btn-danger" onclick="savedlist(ol)">
+	<input type="submit" value="load data from server"  class="btn-small btn-danger" onclick="loaddata(document.getElementById('savename'))">
+	<input type="text" name="savename" id="savename" onkeyup="suggest(this)" required> <span id="suggestion"></span>
+	<br><br><br>
+
+
+	<div>
+
+
+
+
+	<canvas width="840" height="350" id="a" style="border:2px solid #33CC33; cursor:crosshair;" onmousemove="moveactions(event)"  onmousedown="setstart(event)" onmouseup="setend(event)"></canvas>
+	<img id="loader" src="static/ajax-loader.gif" width="200px" height="200px" style="display:None;">
+
+
+	
+	</div>
+</div>
+<div class="col-sm-3 col-md-1" style="background-color:lavender;">
+</div>
+</body>
+
+{% endblock %}
